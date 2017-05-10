@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>random password</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-select.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/seedrandom.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<style>
+body {
+    margin:0;
+    padding:0;
+    background:url('Image/brg.jpg') center center fixed ;
+    background-size: cover;
+}
+.page1{
+	padding-top: 40px;
+}
+.this_bg{
+	margin:0px auto;
+	padding: 15px;
+	background-color:rgba(255, 255, 255 ,.5);
+	border: 1px;
+	border-radius: 7px;
+}
+#randomTable {
+    font-family: monospace;
+    font-size: 2.0em;
+    text-shadow: 2px 2px; 
+    text-align: center;
+}
+.page2{
+	margin:0 auto;;
+	text-align:center;
+}
+#word{
+	color:#E4473A;
+	font-family:DFKai-sb;
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.divstep1{
+	margin-top:30px;
+}
+#step1{
+	float:left;
+	background-color:rgba(255, 255, 255 ,.5);
+	border: 1px;
+	border-radius: 7px;
+}
+.page3{
+	margin-top:30px;
+}
+.step{
+	margin-bottom:15px;
+	background-color:rgba(255, 255, 255 ,.5);
+	border: 1px;
+	border-radius: 7px;
+}
+.step-padding{
+	padding:10px;
+}
+.photo{
+	max-width: 100%;
+    margin: 0 0 10px 0;
+}
+#text1{
+	padding-bottom:50px;
+}
+#text2{
+	padding-bottom:33px;
+}
+#text3{
+	padding-bottom:50px;
+}
+#text4{
+	padding-bottom:10px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="page1">
+		<div class="this_bg">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-3">
+					<span class="glyphicon glyphicon-user"></span> 
+					請輸入使用者身分證末五碼：
+					</label>
+					<div class="col-sm-7">
+					<input type="text" id="txtSeed" class="form-control" placeholder="輸入身分證末五碼" />
+					</div>
+				    <div class="col-sm-2">
+					<input type="button" class="btn btn-success btn" id="btnGo"value="按下產生編碼"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3">
+					<span class="glyphicon glyphicon-list-alt"></span> 
+					請輸入產生幾列:
+					</label>
+				    <div class="col-sm-3">
+					<select id="column" class="selectpicker" data-style="btn-info">
+					  <option>請選擇</option>
+					</select>
+					</div>
+					<label class="control-label col-sm-3">
+					<span class="glyphicon glyphicon-list-alt"></span> 
+					請輸入產生幾個:
+					</label>
+					<div class="col-sm-3">
+					<select id="piece" class="selectpicker" data-style="btn-primary">
+					  <option value="choose">請選擇</option>
+					</select>
+					</div>
+				</div>	
+			 </form>
+			<div id="randomTable" style="color:royalblue;">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="divstep1">
+		<div id = "step1">
+			<h2 class="card animated infinite bounce">Step 1</h2>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="page2">
+		<div>
+			<img src="Image/Ccard.png">
+		</div>
+		<div>
+			<label id="word"class="control-label"><h3>請查看卡片背面紅色數字</h3></label>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="page3">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="step">
+					<div class="step-padding">
+					<img class="photo" src="Image/photo-0.png">
+					<label class="control-label"><h2  class="card animated infinite bounce">Step 2</h2></label>
+					<label id="text1"class="control-label">卡片背後有一組數字，範例中綠色的區塊第1個8為幾列第2個8為幾個，粉紅色的區塊在後面步驟會再說明。</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="step">
+					<div class="step-padding">
+					<img class="photo" src="Image/photo-1.png">
+					<label class="control-label"><h2  class="card animated infinite bounce">Step 3</h2></label>
+					<label id="text2" class="control-label">在"請輸入使用者身分證末五碼："的地方輸入您的身分證末五碼(範例中身分證末五碼為12345)，再選擇產生幾列(如上個步驟填入"8")
+					，再選擇產生幾個(如上個步驟填入"8")。</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="page3">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="step">
+					<div class="step-padding">
+					<img class="photo" src="Image/photo-2.png">
+					<label class="control-label"><h2  class="card animated infinite bounce">Step 4</h2></label>
+					<label id="text3"class="control-label">輸入與選擇完成後按下右上角的綠色按鍵("按下產生編碼")即產生編碼。</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="step">
+					<div class="step-padding">
+					<img class="photo" src="Image/photo-3.png">
+					<label class="control-label"><h2  class="card animated infinite bounce">Step 5</h2></label>
+					<label id="text4" class="control-label">產生出來的編碼後，在看到粉紅色區塊的數字，第一組為"46"代表第4列第6個為您的第一個密碼，第二組為"13"
+					代表第1列第3個為您的第個密碼，之後以此類推，最後拼出來的密碼為("556229")，即完成您的密碼</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+  
+$("#btnGo").click(function () {
+	    var result = "";
+		// 純數字:
+		var sPool = "0123456789";
+	    // 數字+小寫字母: (去除 l, o)
+	    //var sPool = "abcdefghijkmnpqrstuvwxyz0123456789";
+	    // 數字+大小寫字母: (去除 I, O, l, o)
+	    //var sPool = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789";
+	    var a = column.selectedIndex;
+	    var b = piece.selectedIndex;
+	    
+	    Math.seedrandom($("#txtSeed").val()); // 設定亂數種子
+		var iRandom = 0; var ch = "?";
+		for (iRow = 1; iRow <= a; iRow++) {
+			var sLine = (iRow + 100).toString().substr(1, 2) + ": ";
+			for (iCol = 1; iCol <= b; iCol++) {
+				iRandom = Math.floor(Math.random() * sPool.length);
+				ch = sPool.substr(iRandom, 1);
+				sLine += " "+iCol+"."+ ch ;
+			    
+			}
+			
+			result += sLine+ "<br>";
+		
+		}
+		
+			$("#randomTable").html(result);
+});	
+
+
+function setColumn(){
+	for(var i=1; i<=10;i++){
+	  var option = document.createElement("option");
+      option.text = "第" + i + "列";
+      var select = document.getElementById("column");
+      select.appendChild(option);
+	}
+}
+setColumn();
+
+function setPiece(){
+	for(var i=1; i<=10;i++){
+	  var option = document.createElement("option");
+      option.text = "第" + i + "個";
+      var select = document.getElementById("piece");
+      select.appendChild(option);
+	}
+}
+setPiece();
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
