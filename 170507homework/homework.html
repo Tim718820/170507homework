@@ -232,7 +232,7 @@ $("#btnGo").click(function () {
 function setColumn(){
 	for(var i=1; i<=10;i++){
 	  var option = document.createElement("option");
-      option.text = "第" + i + "列";
+      option.text = i + "列";
       var select = document.getElementById("column");
       select.appendChild(option);
 	}
@@ -242,7 +242,7 @@ setColumn();
 function setPiece(){
 	for(var i=1; i<=10;i++){
 	  var option = document.createElement("option");
-      option.text = "第" + i + "個";
+      option.text = i + "個";
       var select = document.getElementById("piece");
       select.appendChild(option);
 	}
